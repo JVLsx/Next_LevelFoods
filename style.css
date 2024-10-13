@@ -1,41 +1,15 @@
-@font-face {
-    font-family: MarioKart;
-    src: url(/fonte/Mario-Kart-DS.ttf);
-}
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: Next_Level;
+    src: url(../fonts/Mario-Kart-DS.ttf);
 }
 
 body{
-    background-color: rgb(0, 0, 0);
+background-color:rgb(31, 31, 31);
+
 }
 
-img{
-    width: 10rem;
-    height: 10rem;
-    border-radius: 192px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
-
-.text{
-    font-size: 36px; 
-    line-height: 40px;
-    color: aliceblue;
-    margin-top: 3rem;
-    margin-bottom:0.5rem;
-    text-align: center;
-    font-family: MarioKart;
-}
-
-header{
-    width: 100%;
-    height: 300px;
-    background-color: rgb(80, 36, 121);
- 
-}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="carrinho.css">
+</head>
+<body>
+    <button  onclick="location.href='index.html';" style="height: auto;width: auto;
+     background-color: blueviolet;
+     border: none;
+     border-radius: 3px;">
+     <img src="img/de-volta.png" alt="" style="height: 30px;width:20ppx;"></button>
+    <div class="carrinho">
+        <h2>Carrinho de Compras</h2>
+        <p id="total">Total: R$0,00</p>
+    </div>
+    <ul id="carrinho-items">
+        
+    </ul>
+    <button id="limpar-carrinho">Limpar Carrinho</button>
+    <script src="script.js"></script>
+    <style>
+        #carrinho-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.produto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    max-width: 500px;
+    max-height: 100px;
+    width: auto;
+}
+
+.produto img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.produto p {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #4500b5;
+}
+
+    </style>
+    
+</body>
+</html>

@@ -11,7 +11,7 @@
      background-color: blueviolet;
      border: none;
      border-radius: 3px;">
-     <img src="img/de-volta.png" alt="" style="height: 30px;width:20ppx;"></button>
+     <img src="img/de-volta.png" alt="" style="height: 30px;width:20px;"></button>
     <div class="carrinho">
         <h2>Carrinho de Compras</h2>
         <p id="total">Total: R$0,00</p>
@@ -20,52 +20,69 @@
         
     </ul>
     <button id="limpar-carrinho">Limpar Carrinho</button>
+    <button id="confirmar-compra" onclick="location.href='indentificacao.html';">
+        Confirmar Compra
+    </button>
     <script src="script.js"></script>
     <style>
         #carrinho-items {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-.produto {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-    max-width: 500px;
-    max-height: 100px;
-    width: auto;
-}
+        .produto {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            max-width: 500px;
+            max-height: 100px;
+            width: auto;
+        }
 
-.produto img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-left: 10px;
-}
+        .produto img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
 
-.produto p {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+        .produto p {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-button {
-    margin: 0 5px;
-    padding: 5px 10px;
-    background-color: #6200ea;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
-}
+        button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
 
-button:hover {
-    background-color: #4500b5;
-}
+        button:hover {
+            background-color: #4500b5;
+        }
 
+        #confirmar-compra {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        #confirmar-compra:hover {
+            background-color: #45a049;
+        }
     </style>
     
 </body>

@@ -31,6 +31,9 @@ document.querySelectorAll('.add_car').forEach(button => {
 function updateCart() {
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
+    // Salva o total no localStorage para a página de confirmação
+    localStorage.setItem('cartTotal', total);
+
     cartItemsList.innerHTML = ''; // Limpa o carrinho
     cart.forEach(item => {
         // Cria o contêiner do produto com a mesma estrutura da página inicial
@@ -65,7 +68,7 @@ function updateCart() {
         productDiv.appendChild(price);
         productDiv.appendChild(addButton);
         productDiv.appendChild(removeButton);
-        
+
         // Adiciona o contêiner do produto ao carrinho
         cartItemsList.appendChild(productDiv);
     });
@@ -73,6 +76,7 @@ function updateCart() {
     // Atualiza o valor total
     totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
 }
+
 
 
 // Função para mudar a quantidade de um produto

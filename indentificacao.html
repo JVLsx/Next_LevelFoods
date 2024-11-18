@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificação do Aluno</title>
+    <style>
+       
+        /* Estilos gerais */
+        body {
+            margin: 0;
+            background-color: rgb(93, 84, 100);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .descrisao {
+            width: 100%;
+            height: 100px;
+            background-color: #f1e4ff;
+            justify-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .produto {
+            width: 200px;
+            height: auto;
+            background-color: rgb(210, 192, 223);
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px;
+            padding: 20px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .conteiner {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: blueviolet;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: rgb(178, 127, 226);
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .vercarrinho {
+            height: 40px;
+            width: 110px;
+            background-color: blueviolet;
+            border: none;
+            display: flex;
+            padding: 10px;
+            margin: auto;
+            text-align: center;
+            justify-content: center;
+        }
+
+        /* Media Queries para responsividade */
+        @media only screen and (max-width: 768px) {
+            .produto {
+                width: 100%;
+                height: auto;
+                margin: 10px 0;
+            }
+
+            .conteiner {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            button {
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .produto {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            button {
+                width: 80%;
+            }
+
+            .vercarrinho {
+                height: 40px;
+                width: 110px;
+                background-color: blueviolet;
+                border: none;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Identificação do Aluno</h1>
+    <form id="identificationForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="course">Curso:</label>
+        <select id="course" name="course" required>
+            <option value="">Selecione</option>
+            <option value="Geologia">Geologia</option>
+            <option value="Informática">Informática</option>
+            <option value="Edificações">Edificações</option>
+            <option value="Mineração">Mineração</option>
+        </select>
+
+        <label for="year">Série:</label>
+        <select id="year" name="year" required>
+            <option value="">Selecione</option>
+            <option value="1ª Série">1ª Série</option>
+            <option value="2ª Série">2ª Série</option>
+            <option value="3ª Série">3ª Série</option>
+        </select>
+
+        <button type="button" onclick="showIdentification()">Enviar</button>
+    </form>
+    <button id="confirmar-compra" onclick="location.href='confirmacao.html';"> Finalizar compra</button>
+
+    <div class="output" id="output"></div>
+</div>
+
+<script src="identificacao.js">
+
+</script>
+
+</body>
+</html>

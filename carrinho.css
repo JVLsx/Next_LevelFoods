@@ -52,6 +52,7 @@ html {
     height: 20px;
     margin-left: 5px;
     border-radius: 3px;
+    color: #f1e4ff;
 }
 
 .add_car:active {
@@ -92,6 +93,7 @@ html {
     .add_car {
         width: 80%; /* Ajusta a largura do botão para ocupar uma porcentagem da tela */
         margin: 10px 40px; /* Margem vertical para espaçamento */
+        
     }
     .vercarrinho{
         height: 40px;

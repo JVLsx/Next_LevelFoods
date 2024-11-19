@@ -82,8 +82,6 @@
             <h3>Código PIX (Copie e Cole):</h3>
             <div id="pix-code-content" class="pix-code"></div>
             <button id="copy-pix-button">Copiar PIX</button>
-            <h3>Ou escaneie o QR Code:</h3>
-            <img id="pix-qrcode-image" src="" alt="QR Code PIX" />
         </div>
         <input type="file" id="proof-input" style="margin-top: 10px;" />
         <button id="upload-proof-button">Enviar Comprovante</button>
@@ -107,7 +105,7 @@
     // Exibir o código PIX e o botão de copiar ao clicar em "Pagar com PIX"
     document.getElementById('pix-button').addEventListener('click', function() {
         const pixCode = '00020126680014BR.GOV.BCB.PIX0123456789012345204000053039865405110.005802BR5924Fulano de Tal6009Sao Paulo62070503***6304A13A';
-        const pixQrCodeImage = 'https://example.com/qrcode.png';
+        
 
         document.getElementById('pix-code-content').textContent = pixCode;
         document.getElementById('pix-qrcode-image').src = pixQrCodeImage;
@@ -128,8 +126,8 @@
     // Exibir temporizador ao enviar o comprovante
     document.getElementById('upload-proof-button').addEventListener('click', function() {
         if (document.getElementById('proof-input').files.length > 0) {
-            alert("Comprovante enviado com sucesso! Pegue sua encomenda em até 20 minutos.");
-            startTimer(20 * 60); // 20 minutos em segundos
+            alert("Comprovante enviado com sucesso! Pegue sua encomenda em até 02 minutos.");
+            startTimer(2  * 60); // 02 minutos em segundos
             document.getElementById('timer-section').style.display = 'block';
         } else {
             alert("Por favor, envie o comprovante.");

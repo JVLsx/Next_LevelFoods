@@ -1,89 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="carrinho.css">
-</head>
-<body>
-    <button  onclick="location.href='index.html';" style="height: auto;width: auto;
-     background-color: blueviolet;
-     border: none;
-     border-radius: 3px;">
-     <img src="img/de-volta.png" alt="" style="height: 30px;width:20px;"></button>
-    <div class="carrinho">
-        <h2>Carrinho de Compras</h2>
-        <p id="total">Total: R$0,00</p>
-    </div>
-    <ul id="carrinho-items">
-        
-    </ul>
-    <button id="limpar-carrinho">Limpar Carrinho</button>
-    <button id="confirmar-compra" onclick="location.href='indentificacao.html';">
-        Confirmar Compra
-    </button>
-    <script src="script.js"></script>
+    <title>Carrinho de Compras</title>
     <style>
-        #carrinho-items {
+        /* Estilos gerais */
+        body {
+            margin: 0;
+            background-color: rgb(93, 84, 100);
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
             display: flex;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
-            gap: 10px;
+            padding: 20px;
         }
 
         .produto {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-            max-width: 500px;
-            max-height: 100px;
-            width: auto;
+            background-color: rgb(210, 192, 223);
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            margin: 5px;
+            text-align: center;
         }
 
-        .produto img {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-left: 10px;
+        h3, p {
+            color: #4A4A4A;
         }
 
-        .produto p {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        button {
-            margin: 0 5px;
-            padding: 5px 10px;
-            background-color: #6200ea;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 3px;
-        }
-
-        button:hover {
-            background-color: #4500b5;
-        }
-
-        #confirmar-compra {
-            margin-top: 10px;
-            padding: 10px 20px;
+        .checkout-btn, #pix-button, #copy-pix-button, #upload-proof-button {
             background-color: #4CAF50;
             color: white;
+            padding: 10px 20px;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
-            border-radius: 3px;
-            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
         }
 
-        #confirmar-compra:hover {
+        .checkout-btn:hover, #pix-button:hover, #copy-pix-button:hover, #upload-proof-button:hover {
             background-color: #45a049;
         }
+
+        .pix-code, #timer {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #payment-section, #timer-section {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
-    
+</head>
+<body>
+
+<div class="produto">
+    <h3>Total do Carrinho: R$ <span id="cart-total">110,00</span></h3>
+
+    <button class="checkout-btn" id="checkout-button">Finalizar Compra</button>
+
+    <div id="payment-section">
+        <h2>Forma de Pagamento</h2>
+        <button id="pix-button">Pagar com PIX</button>
+        <div id="pix-code">
+            <h3>Código PIX (Copie e Cole):</h3>
+            <div id="pix-code-content" class="pix-code"></div>
+            <button id="copy-pix-button">Copiar PIX</button>
+        </div>
+        <input type="file" id="proof-input" style="margin-top: 10px;" />
+        <button id="upload-proof-button">Enviar Comprovante</button>
+    </div>
+
+    <div id="timer-section">
+        <p>Você deve pegar sua encomenda em:</p>
+        <div id="timer"></div>
+    </div>
+</div>
+
+<script>
+    const total = localStorage.getItem('cartTotal');
+    document.getElementById('cart-total').textContent = parseFloat(total || 110).toFixed(2);
+
+    // Exibir forma de pagamento ao clicar no botão de finalizar compra
+    document.getElementById('checkout-button').addEventListener('click', function() {
+        document.getElementById('payment-section').style.display = 'block';
+    });
+
+    // Exibir o código PIX e o botão de copiar ao clicar em "Pagar com PIX"
+    document.getElementById('pix-button').addEventListener('click', function() {
+        const pixCode = '00020126680014BR.GOV.BCB.PIX0123456789012345204000053039865405110.005802BR5924Fulano de Tal6009Sao Paulo62070503***6304A13A';
+        
+
+        document.getElementById('pix-code-content').textContent = pixCode;
+        document.getElementById('pix-qrcode-image').src = pixQrCodeImage;
+        document.getElementById('pix-code').style.display = 'block';
+        document.getElementById('copy-pix-button').style.display = 'inline-block';
+    });
+
+    // Função para copiar o código PIX
+    document.getElementById('copy-pix-button').addEventListener('click', function() {
+        const pixCodeText = document.getElementById('pix-code-content').textContent;
+        navigator.clipboard.writeText(pixCodeText).then(() => {
+            alert("Código PIX copiado com sucesso!");
+        }).catch(err => {
+            alert("Falha ao copiar o código PIX.");
+        });
+    });
+
+    // Exibir temporizador ao enviar o comprovante
+    document.getElementById('upload-proof-button').addEventListener('click', function() {
+        if (document.getElementById('proof-input').files.length > 0) {
+            alert("Comprovante enviado com sucesso! Pegue sua encomenda em até 02 minutos.");
+            startTimer(02 * 60); // 02 minutos em segundos
+            document.getElementById('timer-section').style.display = 'block';
+        } else {
+            alert("Por favor, envie o comprovante.");
+        }
+    });
+
+    // Função para iniciar e atualizar o temporizador
+    function startTimer(duration) {
+        let timer = localStorage.getItem('timer') || duration;
+        localStorage.setItem('timer', timer);
+
+        const interval = setInterval(() => {
+            const minutes = Math.floor(timer / 60);
+            const seconds = timer % 60;
+
+            document.getElementById('timer').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timer--;
+
+            // Atualiza o timer no localStorage
+            localStorage.setItem('timer', timer);
+
+            if (timer < 0) {
+                clearInterval(interval);
+                document.getElementById('timer').textContent = "Tempo esgotado! Entre em contato com a loja.";
+                localStorage.removeItem('timer'); // Limpa o timer do localStorage
+            }
+        }, 1000);
+    }
+
+    // Verifica se já existe um timer em andamento ao carregar a página
+    window.addEventListener('load', () => {
+        const savedTimer = parseInt(localStorage.getItem('timer'), 10);
+        if (savedTimer > 0) {
+            document.getElementById('timer-section').style.display = 'block';
+            startTimer(savedTimer);
+        }
+    });
+</script>
+
 </body>
 </html>

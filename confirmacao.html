@@ -127,7 +127,7 @@
     document.getElementById('upload-proof-button').addEventListener('click', function() {
         if (document.getElementById('proof-input').files.length > 0) {
             alert("Comprovante enviado com sucesso! Pegue sua encomenda em até 02 minutos.");
-            startTimer(2  * 60); // 02 minutos em segundos
+            startTimer(1  * 60); // 01 minutos em segundos
             document.getElementById('timer-section').style.display = 'block';
         } else {
             alert("Por favor, envie o comprovante.");
@@ -135,36 +135,24 @@
     });
 
     // Função para iniciar e atualizar o temporizador
-    function startTimer(duration) {
-        let timer = localStorage.getItem('timer') || duration;
-        localStorage.setItem('timer', timer);
-
-        const interval = setInterval(() => {
-            const minutes = Math.floor(timer / 60);
-            const seconds = timer % 60;
-
-            document.getElementById('timer').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-            timer--;
-
-            // Atualiza o timer no localStorage
-            localStorage.setItem('timer', timer);
 
             if (timer < 0) {
                 clearInterval(interval);
                 document.getElementById('timer').textContent = "Tempo esgotado! Entre em contato com a loja.";
                 localStorage.removeItem('timer'); // Limpa o timer do localStorage
-            }
-        }, 1000);
-    }
+                //mostre um botão que volta para pagina inicial
+                document.getElementById('timer-section').style.display = 'none'
+                document.getElementById('back-to-home-button').style.display = 'block'
+                }
+              
+
+                
+        
 
     // Verifica se já existe um timer em andamento ao carregar a página
-    window.addEventListener('load', () => {
-        const savedTimer = parseInt(localStorage.getItem('timer'), 10);
-        if (savedTimer > 0) {
-            document.getElementById('timer-section').style.display = 'block';
-            startTimer(savedTimer);
-        }
-    });
+   
+        
+   
 </script>
 
 </body>

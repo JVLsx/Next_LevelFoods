@@ -127,30 +127,13 @@
     document.getElementById('upload-proof-button').addEventListener('click', function() {
         if (document.getElementById('proof-input').files.length > 0) {
             alert("Comprovante enviado com sucesso! Pegue sua encomenda em até 02 minutos.");
-            startTimer(1  * 60); // 01 minutos em segundos
             document.getElementById('timer-section').style.display = 'block';
         } else {
             alert("Por favor, envie o comprovante.");
         }
     });
 
-    // Função para iniciar e atualizar o temporizador
 
-            if (timer < 0) {
-                clearInterval(interval);
-                document.getElementById('timer').textContent = "Tempo esgotado! Entre em contato com a loja.";
-                localStorage.removeItem('timer'); // Limpa o timer do localStorage
-                //mostre um botão que volta para pagina inicial
-                document.getElementById('timer-section').style.display = 'none'
-                document.getElementById('back-to-home-button').style.display = 'block'
-                }
-              
-
-                
-        
-
-    // Verifica se já existe um timer em andamento ao carregar a página
-   
         
    
 </script>

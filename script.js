@@ -28,15 +28,15 @@ document.querySelectorAll('.add_car').forEach(button => {
 });
 
 // Atualiza o carrinho na página do carrinho
+// Atualiza o carrinho no localStorage
 function updateCart() {
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-    // Salva o total no localStorage para a página de confirmação
-    localStorage.setItem('cartTotal', total);
+    localStorage.setItem('cart', JSON.stringify(cart)); // Salva o carrinho no localStorage
+    localStorage.setItem('cartTotal', total); // Salva o total
 
     cartItemsList.innerHTML = ''; // Limpa o carrinho
     cart.forEach(item => {
-        // Cria o contêiner do produto com a mesma estrutura da página inicial
         const productDiv = document.createElement('div');
         productDiv.classList.add('produto');
 
@@ -62,20 +62,18 @@ function updateCart() {
         removeButton.textContent = '-';
         removeButton.onclick = () => changeQuantity(item.name, -1);
 
-        // Adiciona a imagem, nome, preço e botões ao contêiner do produto
         productDiv.appendChild(img);
         productDiv.appendChild(name);
         productDiv.appendChild(price);
         productDiv.appendChild(addButton);
         productDiv.appendChild(removeButton);
 
-        // Adiciona o contêiner do produto ao carrinho
         cartItemsList.appendChild(productDiv);
     });
 
-    // Atualiza o valor total
     totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
 }
+
 
 
 
@@ -103,3 +101,37 @@ if (clearCartButton) {
 }
 // Inicializa o carrinho ao carregar a página
 updateCart();
+// guarda o carrinho na variavel carrinho no pedido.js
+localStorage.setItem('carrinho', JSON.stringify(cart));
+
+
+document.getElementById('confirmar-compra').addEventListener('click', async () => {
+    const carrinho = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    if (carrinho.length === 0) {
+        alert('O carrinho está vazio.');
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:3000/enviar-carrinho', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(carrinho),
+        });
+
+        if (response.ok) {
+            alert('E-mail enviado com sucesso!');
+        } else {
+            alert('Erro ao enviar o e-mail.');
+        }
+    } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao conectar com o servidor.');
+    }
+});
+
+
+

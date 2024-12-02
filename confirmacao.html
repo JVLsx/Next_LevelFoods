@@ -67,30 +67,27 @@
             margin-top: 20px;
         }
     </style>
+
 </head>
 <body>
 
 <div class="produto">
     <h3>Total do Carrinho: R$ <span id="cart-total">110,00</span></h3>
 
-    <button class="checkout-btn" id="checkout-button">Finalizar Compra</button>
+    <button class="checkout-btn" id="checkout-button">Pagar com Pix</button>
 
     <div id="payment-section">
         <h2>Forma de Pagamento</h2>
-        <button id="pix-button">Pagar com PIX</button>
+        <button id="pix-button">Gerar código do PIX</button>
         <div id="pix-code">
             <h3>Código PIX (Copie e Cole):</h3>
             <div id="pix-code-content" class="pix-code"></div>
             <button id="copy-pix-button">Copiar PIX</button>
         </div>
-        <input type="file" id="proof-input" style="margin-top: 10px;" />
-        <button id="upload-proof-button">Enviar Comprovante</button>
+        <p><input type="file" id="proof-input" style="margin-top: 10px;"/></p>  
+        <button id="upload-proof-button"  >Enviar Comprovante e Finalizar Compra</button>
     </div>
 
-    <div id="timer-section">
-        <p>Você deve pegar sua encomenda em:</p>
-        <div id="timer"></div>
-    </div>
 </div>
 
 <script>
@@ -126,8 +123,16 @@
     // Exibir temporizador ao enviar o comprovante
     document.getElementById('upload-proof-button').addEventListener('click', function() {
         if (document.getElementById('proof-input').files.length > 0) {
-            alert("Comprovante enviado com sucesso! Pegue sua encomenda em até 02 minutos.");
-            document.getElementById('timer-section').style.display = 'block';
+            alert("Comprovante enviado com sucesso!");
+            // guarda a imagem no local storage
+            const file = document.getElementById('proof-input').files[0];
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                localStorage.setItem('proof', event.target.result);};
+                reader.readAsDataURL(file);
+                
+            location.href='index.html'
+           // document.getElementById('timer-section').style.display = 'block';
         } else {
             alert("Por favor, envie o comprovante.");
         }

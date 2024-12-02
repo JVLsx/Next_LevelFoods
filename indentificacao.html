@@ -5,54 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Identificação do Aluno</title>
     <style>
-       
         /* Estilos gerais */
         body {
             margin: 0;
             background-color: rgb(93, 84, 100);
             font-family: Arial, Helvetica, sans-serif;
-            color: antiquewhite;
-        }
-
-        .descrisao {
-            width: 100%;
-            height: 100px;
-            background-color: #f1e4ff;
-            justify-items: center;
+            color: #333;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
         }
 
-        h1{
-           color: antiquewhite; 
-        }
-
-        .produto {
-            width: 200px;
-            height: auto;
+        .form-container {
             background-color: rgb(210, 192, 223);
             border-radius: 10px;
             box-shadow: 0px 3px 10px;
             padding: 20px;
+            width: 80%;
+            max-width: 600px;
             margin: 5px;
             text-align: center;
         }
 
-        .conteiner {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 20px;
+        h1 {
+            color: #faf7f7;
+            margin-bottom: 20px;
         }
 
-        input, select, button {
+        label {
+            font-weight: bold;
+            color: #f8ecec;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select, textarea, button {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
         }
 
         button {
@@ -61,66 +57,21 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 15px;
+            transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: rgb(178, 127, 226);
+            background-color: #c71abe;
+        }
+
+        textarea {
+            resize: vertical;
         }
 
         .output {
             margin-top: 20px;
             font-size: 16px;
             color: #333;
-        }
-
-        .vercarrinho {
-            height: 40px;
-            width: 110px;
-            background-color: blueviolet;
-            border: none;
-            display: flex;
-            padding: 10px;
-            margin: auto;
-            text-align: center;
-            justify-content: center;
-        }
-
-        /* Media Queries para responsividade */
-        @media only screen and (max-width: 768px) {
-            .produto {
-                width: 100%;
-                height: auto;
-                margin: 10px 0;
-            }
-
-            .conteiner {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            button {
-                width: 80%;
-                margin: 10px auto;
-            }
-        }
-
-        @media only screen and (max-width: 480px) {
-            .produto {
-                width: 100%;
-                margin: 5px 0;
-            }
-
-            button {
-                width: 80%;
-            }
-
-            .vercarrinho {
-                height: 40px;
-                width: 110px;
-                background-color: blueviolet;
-                border: none;
-                margin: auto;
-            }
         }
     </style>
 </head>

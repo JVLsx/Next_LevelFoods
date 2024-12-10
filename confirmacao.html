@@ -75,6 +75,8 @@
     <h3>Total do Carrinho: R$ <span id="cart-total">110,00</span></h3>
 
     <button class="checkout-btn" id="checkout-button">Pagar com Pix</button>
+    <button class="checkout-btn" id="check">Pagar em especie</button>
+
 
     <div id="payment-section">
         <h2>Forma de Pagamento</h2>
@@ -98,10 +100,14 @@
     document.getElementById('checkout-button').addEventListener('click', function() {
         document.getElementById('payment-section').style.display = 'block';
     });
+    document.getElementById('check').addEventListener('click', function() {
+        location.href='index.html'
+        alert("Seu Pedido Foi Enviado");
+    });
 
     // Exibir o código PIX e o botão de copiar ao clicar em "Pagar com PIX"
     document.getElementById('pix-button').addEventListener('click', function() {
-        const pixCode = '00020126680014BR.GOV.BCB.PIX0123456789012345204000053039865405110.005802BR5924Fulano de Tal6009Sao Paulo62070503***6304A13A';
+        const pixCode = '+5583993949448';
         
 
         document.getElementById('pix-code-content').textContent = pixCode;

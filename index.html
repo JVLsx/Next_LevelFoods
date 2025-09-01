@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <title>Next level foods</title>
 
     <link rel="stylesheet" href="./css/style.css">
-    
+
 
 </head>
 
@@ -19,65 +19,83 @@
     </header>
     <main class="cardapio">
         <section class="cardapio__conteudo">
-             <div  class="produto" >
-        <img src="img/empada_doce.png" id="empada_doce" >
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">Empada doce</p>
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">R$3,00</p>
-        <button class="add_car" data-nome="Empada Doce" data-preco="3.00"> Adicionar ao carrinho</button>
-    </div>
-    <!-- produto 2 -->
-    <div  class="produto">
-        <img src="img/empada_salgada.png" id="empada_salgada">
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">Empada salgada</p>
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">R$3,00</p>
-        <button  data-nome="Empada salgada" data-preco="3.00" class="add_car"> Adicionar ao carrinho</button>
-    </div>
-    <!-- produto 3 -->
-    <div  class="produto">
-        <img src="img/enroladinho_pizza.png" id="empada_salgada">
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">Enrroladinho de pizza</p>
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">R$3,00</p>
-        <button  data-nome="Enrroladinho de pizza" data-preco="3.00" class="add_car"> Adicionar ao carrinho</button>
-    </div>
 
+            <!-- produto 1 -->
+            <div class="cardapio__conteudo__produto">
+                <img class="cardapio__conteudo__produto__imagem" src="./assets/empada_doce.png" id="empada_doce">
+                <p class="cardapio__conteudo__produto__texto">Empada doce</p>
+                <p class="cardapio__conteudo__produto__texto">R$3,00</p>
+                <button class="cardapio__conteudo__produto__texto__botao" class="add_car" data-nome="Empada Doce"
+                    data-preco="3.00"> Adicionar ao carrinho</button>
+            </div>
 
-    <!-- produto 4 -->
-    <div  class="produto">
-        <img src="img/salgados_geral.png" id="empada_salgada">
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">Salgadinhos</p>
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">R$3,00</p>
-        <button  data-nome="Salgadinhos" data-preco="3.00" class="add_car"> Adicionar ao carrinho</button>
-    </div>
-</div>
-    <div class="conteiner2">
-    <!-- produto 5 -->
-    <div  class="produto">
-        <img src="img/torta.png" id="empada_salgada">
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">Torta</p>
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">R$3,00</p>
-        <button  data-nome="Torta" data-preco="3.00" class="add_car"> Adicionar ao carrinho</button>
-    </div>
-    <!-- produto 6 -->
-    <div  class="produto">
-        <img src="img/trufa.png" id="empada_salgada">
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">Trufa</p>
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">R$3,00</p>
-        <button data-nome="Trufa" data-preco="3.00" class="add_car"> Adicionar ao carrinho</button>
-    </div>
-    <!-- produto 7 -->
-    <div  class="produto">
-        <img src="img/refrigerante_indaia_guarana.png" id="empada_salgada">
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">Refrigerante guarana</p>
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">R$3,00</p>
-        <button data-nome="Refrigerante guarana" data-preco="1.00" class="add_car"> Adicionar ao carrinho</button>
-    </div>
-    <!-- produto 8 -->
-    <div  class="produto">
-        <img src="img/refrigerante_indaia_uva.png" id="empada_salgada">
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">Refrigerante uva</p>
-        <p class="precos" style="font-family: Arial, Helvetica, sans-serif;">R$3,00</p>
-        <button data-nome="Refrigerante uva" data-preco="1.00" class="add_car"> Adicionar ao carrinho</button>
-    </div>
+            <!-- produto 2 -->
+            <div class="cardapio__conteudo__produto">
+                <img class="cardapio__conteudo__produto__imagem" src="./assets/empada_salgada.png" id="empada_salgada">
+                <p class="cardapio__conteudo__produto__texto">Empada salgada</p>
+                <p class="cardapio__conteudo__produto__texto">R$3,00</p>
+                <button class=" cardapio__conteudo__produto__texto__botao" data-nome="Empada salgada" data-preco="3.00"
+                    class="add_car"> Adicionar ao carrinho</button>
+            </div>
+
+            <!-- produto 3 -->
+            <div class="cardapio__conteudo__produto">
+                <img class="cardapio__conteudo__produto__imagem" src="./assets/enroladinho_pizza.png"
+                    id="enroladinho_pizza">
+                <p class="cardapio__conteudo__produto__texto">Enroladinho de pizza</p>
+                <p class="cardapio__conteudo__produto__texto">R$3,00</p>
+                <button class=" cardapio__conteudo__produto__texto__botao" data-nome="Enroladinho de pizza"
+                    data-preco="3.00" class="add_car"> Adicionar ao
+                    carrinho</button>
+            </div>
+
+            <!-- produto 4 -->
+            <div class="cardapio__conteudo__produto">
+                <img class="cardapio__conteudo__produto__imagem" src="./assets/salgados_geral.png" id="salgados_geral">
+                <p class="cardapio__conteudo__produto__texto">Salgadinhos</p>
+                <p class="cardapio__conteudo__produto__texto">R$3,00</p>
+                <button class=" cardapio__conteudo__produto__texto__botao" data-nome="Salgadinhos" data-preco="3.00"
+                    class="add_car"> Adicionar ao carrinho</button>
+            </div>
+
+            <!-- produto 5 -->
+            <div class="cardapio__conteudo__produto">
+                <img class="cardapio__conteudo__produto__imagem" src="./assets/torta.png" id="torta">
+                <p class="cardapio__conteudo__produto__texto">Torta</p>
+                <p class="cardapio__conteudo__produto__texto">R$3,00</p>
+                <button class=" cardapio__conteudo__produto__texto__botao" data-nome="Torta" data-preco="3.00"
+                    class="add_car"> Adicionar ao carrinho</button>
+            </div>
+
+            <!-- produto 6 -->
+            <div class="cardapio__conteudo__produto">
+                <img class="cardapio__conteudo__produto__imagem" src="./assets/trufa.png" id="trufa">
+                <p class="cardapio__conteudo__produto__texto">Trufa</p>
+                <p class="cardapio__conteudo__produto__texto">R$3,00</p>
+                <button class=" cardapio__conteudo__produto__texto__botao" data-nome="Trufa" data-preco="3.00"
+                    class="add_car"> Adicionar ao carrinho</button>
+            </div>
+
+            <!-- produto 7 -->
+            <div class="cardapio__conteudo__produto">
+                <img class="cardapio__conteudo__produto__imagem" src="./assets/refrigerante_indaia_guarana.png"
+                    id="refrigerante_indaia_guarana">
+                <p class="cardapio__conteudo__produto__texto">Refrigerante guarana</p>
+                <p class="cardapio__conteudo__produto__texto">R$3,00</p>
+                <button class=" cardapio__conteudo__produto__texto__botao" data-nome="Refrigerante guarana"
+                    data-preco="3.00" class="add_car"> Adicionar ao
+                    carrinho</button>
+            </div>
+
+            <!-- produto 8 -->
+            <div class="cardapio__conteudo__produto">
+                <img class="cardapio__conteudo__produto__imagem" src="./assets/refrigerante_indaia_uva.png"
+                    id="refrigerante_indaia_uva">
+                <p class="cardapio__conteudo__produto__texto">Refrigerante uva</p>
+                <p class="cardapio__conteudo__produto__texto">R$3,00</p>
+                <button class=" cardapio__conteudo__produto__texto__botao" data-nome="Refrigerante uva"
+                    data-preco="3.00" class="add_car"> Adicionar ao carrinho</button>
+            </div>
 
         </section>
     </main>

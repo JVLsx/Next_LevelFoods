@@ -1,45 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap');
 
-:root{
-    --cor-principal: #9929EA;
+:root {
+    --cor-principal: #34204c;
     --cor-secundaria: #CC66DA;
     --cor-terciaria: #000000;
-    --cor-quarternaria:#FAEB92;
+    --cor-quarternaria: #FFFFF0;
     --cor-hover: #021526;
-    --fonte-principal: "Krona One", sans-serif;
+    --fonte-principal: "Pixelify Sans", sans-serif;
     --fonte-secundaria: "Montserrat", sans-serif;
 }
 
 
 
-
-*{
-   margin: 0;
-   padding: 0; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-background-color: var(--cor-terciaria);
+body {
+    background-color: var(--cor-terciaria);
 }
 
-.cabecalho{
+.cabecalho {
     display: flex;
     gap: 2.25rem;
     background-color: var(--cor-principal);
+    justify-content: space-between;
+    padding: 1%;
 }
 
-.cabecalho__logo{
-   width: 5%;
- 
+.cabecalho__logo {
+    width: 6%;
+    height: auto;
 }
 
-.cabecalho__texto{
+.cabecalho__texto {
     color: var(--cor-quarternaria);
-    font-family: "Pixelify Sans", sans-serif;
+    font-family: var(--fonte-principal);
     font-size: 2.25rem;
+    padding: 1rem;
+    
 }
 
-.cabecalho__texto__carrinho{
+.cabecalho__texto__carrinho {
     color: var(--cor-quarternaria);
+    padding: 1rem;
+}
+
+.cardapio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center; /* ou flex-start se preferir à esquerda */
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.cardapio__conteudo{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 24px;
+  max-width: 1200px;   /* opcional */
+  margin: 0 auto;      /* opcional */
+  padding: 0 0 10px 0;
+}
+
+.cardapio__conteudo__produto__texto {
+    color: var(--cor-quarternaria);
+    font-family: var(--fonte-secundaria);
+}
+
+
+.cardapio__conteudo__produto__imagem {
+    padding: 1.5% 0 1% 0;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border: 0.2 solid var(--cor-secundaria);
+}
+
+
+.cardapio__conteudo__produto__texto__botao{
+  padding: 16px 4px 14px 4px ;
+  margin-top: 10px;
+  background-color: var(--cor-terciaria); 
+  color: var(--cor-quarternaria); 
+  font-family: var(--fonte-secundaria);
+  border: 0.5px solid var(--cor-secundaria);
     
+}
+
+.cardapio__conteudo__produto__texto__botao:hover{
+    background-color: var(--cor-hover);
+    padding: 18px;
+
 }
